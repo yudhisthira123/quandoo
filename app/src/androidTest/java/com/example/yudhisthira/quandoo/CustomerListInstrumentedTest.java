@@ -2,6 +2,7 @@ package com.example.yudhisthira.quandoo;
 
 import android.content.Intent;
 import android.support.test.espresso.Espresso;
+import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
@@ -52,29 +53,29 @@ public class CustomerListInstrumentedTest {
 
     @Test
     public void testRetryWithSuccessAfterError() {
-//        mockWebServer.enqueue(TestUtils.getMockGenericError());
-//        mockWebServer.enqueue(TestUtils.geMockGenericCustomerSuccess(activityTestRule.getActivity()));
-//
-//        activityTestRule.launchActivity(new Intent());
-//
-//        TestUtils.waitUntill(2000);
-//        Espresso.onView(ViewMatchers.withId(R.id.errorLyt)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
-//
-//        TestUtils.waitUntill(1000);
-//        Espresso.onView(ViewMatchers.withId(R.id.button_refresh)).perform(ViewActions.click());
-//
-//        TestUtils.waitUntill(3000);
-//        Espresso.onView(ViewMatchers.withId(R.id.customer_list)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+        mockWebServer.enqueue(TestUtils.getMockGenericError());
+        mockWebServer.enqueue(TestUtils.geMockGenericCustomerSuccess(activityTestRule.getActivity()));
+
+        activityTestRule.launchActivity(new Intent());
+
+        TestUtils.waitUntill(2000);
+        Espresso.onView(ViewMatchers.withId(R.id.errorLyt)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+
+        TestUtils.waitUntill(1000);
+        Espresso.onView(ViewMatchers.withId(R.id.button_refresh)).perform(ViewActions.click());
+
+        TestUtils.waitUntill(3000);
+        Espresso.onView(ViewMatchers.withId(R.id.customer_list)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
     }
 
     @Test
     public void showCustomerListOnSuccess() {
-//        mockWebServer.enqueue(TestUtils.geMockGenericCustomerSuccess(activityTestRule.getActivity()));
-//
-//        activityTestRule.launchActivity(new Intent());
-//
-//        TestUtils.waitUntill(2000);
-//        Espresso.onView(ViewMatchers.withId(R.id.customer_list)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+        mockWebServer.enqueue(TestUtils.geMockGenericCustomerSuccess(activityTestRule.getActivity()));
+
+        activityTestRule.launchActivity(new Intent());
+
+        TestUtils.waitUntill(2000);
+        Espresso.onView(ViewMatchers.withId(R.id.customer_list)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
 
     }
 
